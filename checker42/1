@@ -1,0 +1,14 @@
+================ PFT Run: Mon Jun 22 21:00:03 ================
+  Running test 0 to end with history:pass,fail,outdated,none
+  Running in fork mode with timeout enabled
+  Test history log open for reading and writing
+
+   0:       nospec_no_specifier_test... [[32mPASS[0m]
+   1:            nospec_empty_string... [[32mPASS[0m]
+   2:      nospec_some_escaped_chars... [[32mPASS[0m]
+   3:          nospec_successive_5_5... [[32mPASS[0m]
+   4:          nospec_successive_2_9... [[0;31;43mTIMEOUT[0m]
+   5:          nospec_successive_8_3... [[0;31;43mTIMEOUT[0m]
+   6:                      pct_basic... [[0;31;43mTIMEOUT[0m]
+   7:                         pct_5w... [[0;31;43mTIMEOUT[0m]
+   8:                       pct_5wlj... [
