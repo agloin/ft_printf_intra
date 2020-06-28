@@ -102,11 +102,11 @@ typedef struct		s_mult
 /*
 ** standart functions
 */
-size_t              ft_strlen(const char *s);
-void                ft_strdel(char **str);
-int				    ft_numlen(long long value, int base);
-void			    ft_bzero(void *s, size_t n);
-int				    ft_atoi(const char *str);
+size_t				ft_strlen(const char *s);
+void				ft_strdel(char **str);
+int					ft_numlen(long long value, int base);
+void				ft_bzero(void *s, size_t n);
+int					ft_atoi(const char *str);
 int					ft_str_sym_cmp(char *str_dad, char *str_son, char ch);
 void				ft_itoabasex(t_format *s, uint64_t un, char *str, int len);
 char				*itobs(uint64_t num, char *str);
