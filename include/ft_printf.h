@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.h                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshawn <yshawn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 19:10:31 by yshawn            #+#    #+#             */
-/*   Updated: 2020/02/26 12:14:28 by yshawn           ###   ########.fr       */
+/*   Updated: 2020/06/28 22:49:08 by yshawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include "../libft/libft.h"
+// # include "../libft/libft.h"
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
@@ -54,7 +54,7 @@
 
 typedef struct		s_format
 {
-    int             fd;
+	int				fd;
 	int				width;
 	int				accur;
 	int				dollar;
@@ -102,6 +102,11 @@ typedef struct		s_mult
 /*
 ** standart functions
 */
+size_t              ft_strlen(const char *s);
+void                ft_strdel(char **str);
+int				    ft_numlen(long long value, int base);
+void			    ft_bzero(void *s, size_t n);
+int				    ft_atoi(const char *str);
 int					ft_str_sym_cmp(char *str_dad, char *str_son, char ch);
 void				ft_itoabasex(t_format *s, uint64_t un, char *str, int len);
 char				*itobs(uint64_t num, char *str);
@@ -109,9 +114,9 @@ char				*itobs(uint64_t num, char *str);
 ** printf main functions
 */
 int					ft_printf(const char *format, ...);
-int                 ft_fprintf(int fd, const char *format, ...); /* ---------------добавил эту дичь!!!!!!!!!!!!!-------------*/
+int					ft_fprintf(int fd, const char *format, ...);
 int					print_b(t_format *s, char *str, va_list vl, va_list f_vl);
-void				printf_printf(char *str, int *cnt);
+void				printf_printf(t_format *spec, char *str, int *cnt);
 /*
 ** clean structs before using
 */
@@ -163,7 +168,7 @@ void				record_minus_num(t_format *s, char *str, uint64_t n, int l);
 ** bonuses
 */
 void				parse_bdollar(int dollar, va_list vl);
-char				*parse_bcolor(char *str);
+char				*parse_bcolor(t_format *spec, char *str);
 /*
 ** main parser for everything
 ** from this function we're going to the parsers

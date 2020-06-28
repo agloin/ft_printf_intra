@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erodd <erodd@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yshawn <yshawn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 23:56:42 by yshawn            #+#    #+#             */
-/*   Updated: 2020/01/22 18:25:01 by erodd            ###   ########.fr       */
+/*   Updated: 2020/06/28 22:14:11 by yshawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		parse_str(t_format *spec, va_list vl)
 		spec->width = 0;
 	tmp_len = spec->width + strlen;
 	strnew = record_str(spec, str, --strlen, tmp_len);
-	write(1, strnew, tmp_len);
+	write(spec->fd, strnew, tmp_len);
 	ft_strdel(&strnew);
 	return (tmp_len);
 }

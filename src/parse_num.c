@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew_accuracy.c                               :+:      :+:    :+:   */
+/*   parse_num.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yshawn <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: yshawn <yshawn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 19:56:50 by yshawn            #+#    #+#             */
-/*   Updated: 2019/12/23 20:57:00 by yshawn           ###   ########.fr       */
+/*   Updated: 2020/06/28 22:16:46 by yshawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		parse_num(t_format *spec, uint64_t ival, int len)
 		record_num(spec, str, ival, len);
 	if (spec->minus == 1)
 		record_minus_num(spec, str, ival, len);
-	write(1, str, strlen);
+	write(spec->fd, str, strlen);
 	free(str);
 	return (strlen);
 }

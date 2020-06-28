@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   record_float.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erodd <erodd@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yshawn <yshawn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 23:56:42 by yshawn            #+#    #+#             */
-/*   Updated: 2020/01/22 23:53:41 by erodd            ###   ########.fr       */
+/*   Updated: 2020/06/28 22:18:50 by yshawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ void		out_float(t_format *spec, char **str_flag, char **str_number)
 	len_num = ft_strlen(*str_number);
 	len_flag = ft_strlen(*str_flag);
 	if (spec->space && spec->zero)
-		write(1, " ", 1);
+		write(spec->fd, " ", 1);
 	if ((spec->sign || spec->plus) && spec->zero)
-		(spec->sign) ? (write(1, "-", 1)) : (write(1, "+", 1));
+		(spec->sign) ? (write(spec->fd, "-", 1)) : (write(spec->fd, "+", 1));
 	if (*str_flag)
-		write(1, *str_flag, len_flag);
+		write(spec->fd, *str_flag, len_flag);
 	if (spec->space && !spec->zero)
-		write(1, " ", 1);
+		write(spec->fd, " ", 1);
 	if ((spec->sign || spec->plus) && !spec->zero)
-		(spec->sign) ? (write(1, "-", 1)) : (write(1, "+", 1));
+		(spec->sign) ? (write(spec->fd, "-", 1)) : (write(spec->fd, "+", 1));
 	if (*str_number)
-		write(1, *str_number, len_num);
+		write(spec->fd, *str_number, len_num);
 	return ;
 }
 
@@ -42,13 +42,13 @@ void		out_float_minus(t_format *spec, char **str_flag, char **str_number)
 	len_num = ft_strlen(*str_number);
 	len_flag = ft_strlen(*str_flag);
 	if (spec->space)
-		write(1, " ", 1);
+		write(spec->fd, " ", 1);
 	if (spec->sign || spec->plus)
-		(spec->sign) ? (write(1, "-", 1)) : (write(1, "+", 1));
+		(spec->sign) ? (write(spec->fd, "-", 1)) : (write(spec->fd, "+", 1));
 	if (*str_number)
-		write(1, *str_number, len_num);
+		write(spec->fd, *str_number, len_num);
 	if (*str_flag)
-		write(1, *str_flag, len_flag);
+		write(spec->fd, *str_flag, len_flag);
 	return ;
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   out_str.c                                          :+:      :+:    :+:   */
+/*   parse_per.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yshawn <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: yshawn <yshawn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/19 19:31:23 by yshawn            #+#    #+#             */
-/*   Updated: 2020/01/13 23:56:32 by yshawn           ###   ########.fr       */
+/*   Updated: 2020/06/28 22:16:54 by yshawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int		parse_per(t_format *spec, va_list vl)
 		str = record_per(spec, str_len);
 	else
 	{
-		write(1, "%", 1);
+		write(spec->fd, "%", 1);
 		return (1);
 	}
-	write(1, str, str_len);
+	write(spec->fd, str, str_len);
 	free(str);
 	return (str_len);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   out_bits.c                                         :+:      :+:    :+:   */
+/*   parse_bit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yshawn <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: yshawn <yshawn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 23:55:23 by yshawn            #+#    #+#             */
-/*   Updated: 2020/01/13 23:55:37 by yshawn           ###   ########.fr       */
+/*   Updated: 2020/06/28 22:16:19 by yshawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		parse_bit(t_format *spec, va_list vl)
 	str = record_bit(spec, str, strlen, unval);
 	if (str)
 	{
-		write(1, str, strlen);
+		write(spec->fd, str, strlen);
 		free(str);
 	}
 	return (strlen);

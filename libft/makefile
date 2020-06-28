@@ -25,17 +25,19 @@ ifeq ($(OS), Linux)
 
 all: $(NAME)
 $(NAME): $(SRC) $(H)
-	@gcc $(FLAGS) -c $(SRC)
+	@$(CC) $(FLAGS) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "lib compiled" 
 
 else ifeq ($(OS), Darwin)
 
 all: $(NAME)
 $(NAME): $(SRC) $(H)
-	@gcc $(FLAGS) -I $(H) -c $(SRC)
+	@$(CC) $(FLAGS) -I $(H) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
+	@echo "lib compiled" 
 
 endif
 clean:

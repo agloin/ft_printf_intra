@@ -1,7 +1,8 @@
 #include "include/ft_printf.h"
 
-int main()
+int     main()
 {
-    ft_printf(";llnlkjgjhfjkbljnkj");
-    return 0;
+    ft_fprintf(2, "kek");
+    ft_printf("ololol");
+    return (0);
 }

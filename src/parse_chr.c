@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   out_chr.c                                          :+:      :+:    :+:   */
+/*   parse_chr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yshawn <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: yshawn <yshawn@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/13 23:53:58 by yshawn            #+#    #+#             */
-/*   Updated: 2020/01/13 23:55:18 by yshawn           ###   ########.fr       */
+/*   Updated: 2020/06/28 22:16:38 by yshawn           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int		parse_chr(t_format *spec, va_list vl)
 		str = record_chr(spec, str, ch);
 		if (str)
 		{
-			write(1, str, spec->width);
+			write(spec->fd, str, spec->width);
 			free(str);
 		}
 	}
 	else
 	{
-		write(1, &ch, 1);
+		write(spec->fd, &ch, 1);
 		return (1);
 	}
 	return (spec->width);
